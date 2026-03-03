@@ -1,0 +1,37 @@
+services:
+  webapi:
+    build:
+      context: ./backend/backend/backend
+      dockerfile: Dockerfile
+    container_name: webapi
+    ports:
+      - "5000:80"
+    depends_on:
+      - db
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Database=itdb;Username=postgres;Password=haslo123
+
+  frontend:
+    build:
+      context: ./frontend/frontendReact
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - webapi
+
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: haslo123
+      POSTGRES_DB: itdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+volumes:
+  pgdata:
