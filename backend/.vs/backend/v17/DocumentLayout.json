@@ -1,12 +1,71 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "backend\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\AppDbContext.cs",
+              "RelativeToolTip": "backend\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T07:46:50.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "backend\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAzwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T07:35:03.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "backend\\Program.cs",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Program.cs",
+              "RelativeToolTip": "backend\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T07:17:33.955Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

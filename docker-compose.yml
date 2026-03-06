@@ -1,19 +1,21 @@
 services:
   webapi:
     build:
-      context: ./backend/backend/backend
+      context: ./backend/backend
       dockerfile: Dockerfile
     container_name: webapi
     ports:
-      - "5000:80"
+      - "5164:8080"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
-      - ConnectionStrings__DefaultConnection=Host=db;Database=itdb;Username=postgres;Password=haslo123
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=db;Database=itdb;Username=postgres;Password=haslo123"
 
   frontend:
     build:
-      context: ./frontend/frontendReact
+      context: ./frontendReact
       dockerfile: Dockerfile
     container_name: frontend
     ports:
@@ -32,6 +34,11 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
 volumes:
   pgdata:
