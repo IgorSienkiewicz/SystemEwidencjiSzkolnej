@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using backend.Data;
+using backend.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 [ApiController]
@@ -6,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 public class RolesController : ControllerBase
 {
     private readonly AppDbContext _context;
-
     public RolesController(AppDbContext context)
     {
         _context = context;

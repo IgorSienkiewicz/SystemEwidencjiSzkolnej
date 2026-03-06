@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\controllers\\logincotnroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\controllers\\logincotnroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|c:\\users\\sienk\\desktop\\systemewidencjiszkolnej\\backend\\backend\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5EA6772F-71A0-4CD6-BFC2-1ED699DC9F2B}|backend\\backend.csproj|solutionrelative:backend\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "backend\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\AppDbContext.cs",
-              "RelativeToolTip": "backend\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "backend\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "backend\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T07:46:50.325Z",
+              "WhenOpened": "2026-03-06T10:19:49.43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "backend\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "backend\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAzwBYAAAAAAAAAAAAAAA==",
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "backend\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Models\\User.cs",
+              "RelativeToolTip": "backend\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T10:16:51.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Models\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "backend\\Models\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Models\\LoginRequest.cs",
+              "RelativeToolTip": "backend\\Models\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T10:12:52.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginCotnroller.cs",
+              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Controllers\\LoginCotnroller.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\LoginCotnroller.cs",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Controllers\\LoginCotnroller.cs",
+              "RelativeToolTip": "backend\\Controllers\\LoginCotnroller.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T10:11:46.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\RolesController.cs",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "backend\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-06T07:35:03.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Program.cs",
               "RelativeDocumentMoniker": "backend\\Program.cs",
-              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Program.cs",
-              "RelativeToolTip": "backend\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\sienk\\Desktop\\SystemEwidencjiSzkolnej\\backend\\backend\\Program.cs*",
+              "RelativeToolTip": "backend\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-06T07:17:33.955Z",
               "EditorCaption": ""
