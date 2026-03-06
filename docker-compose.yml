@@ -14,12 +14,15 @@ services:
       ConnectionStrings__DefaultConnection: "Host=db;Database=itdb;Username=postgres;Password=haslo123"
 
   frontend:
-    build:
-      context: ./frontendReact
-      dockerfile: Dockerfile
+    image: node:24-alpine
     container_name: frontend
+    working_dir: /app
+    volumes:
+      - ./frontendReact:/app
+      - /app/node_modules
     ports:
-      - "3000:80"
+      - "3000:5173"
+    command: sh -c "npm install && npm run dev -- --host"
     depends_on:
       - webapi
 

@@ -1,0 +1,40 @@
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #222;
+}
+
+#login {
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    padding: 30px; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    width: 350px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    width: 80%;
+}
+
+#loguj {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
