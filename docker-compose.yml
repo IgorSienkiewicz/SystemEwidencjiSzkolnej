@@ -1,0 +1,47 @@
+services:
+  webapi:
+    build:
+      context: ./backend/backend
+      dockerfile: Dockerfile
+    container_name: webapi
+    ports:
+      - "5164:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=db;Database=itdb;Username=postgres;Password=haslo123"
+
+  frontend:
+    image: node:24-alpine
+    container_name: frontend
+    working_dir: /app
+    volumes:
+      - ./frontendReact:/app
+      - /app/node_modules
+    ports:
+      - "3000:5173"
+    command: sh -c "npm install && npm run dev -- --host"
+    depends_on:
+      - webapi
+
+  db:
+    image: postgres:latest
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: haslo123
+      POSTGRES_DB: itdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
