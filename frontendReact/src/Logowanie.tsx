@@ -9,27 +9,31 @@ function Logowanie() {
     const navigate = useNavigate();
 
     const Login = async () => {
-        setError('');
-        try {
-            const response = await fetch("http://localhost:5164/api/auth/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ login, haslo })
-            });
+    setError('');
+    try {
+        const response = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ login, haslo })
+        });
 
-            const data = await response.json();
+        const data = await response.json();
 
-            if (response.ok) {
-                console.log("Zalogowano pomyślnie:", data.message);
-                navigate('/main');
-            } else {
-                setError(data.message || "Błąd logowania");
-            }
-        } catch (err) {
-            setError("Błąd połączenia z serwerem");
-            console.error(err);
+        if (response.ok) {
+            console.log("Zalogowano pomyślnie:", data.message);
+            
+            if (data.rola === 'Admin') navigate('/admin');
+            else if (data.rola === 'Nauczyciel') navigate('/nauczyciel');
+            else if (data.rola === 'Magazynier') navigate('/magazynier');
+            else setError("Nieznana rola użytkownika");
+        } else {
+            setError(data.message || "Błąd logowania");
         }
-    };
+    } catch (err) {
+        setError("Błąd połączenia z serwerem");
+        console.error(err);
+    }
+};
 
     return (
         <div id="login">

@@ -1,5 +1,4 @@
-
-function MainPage() {
+function AdminPage() {
   return (
     <div>
       <h1>Tu będzie strona dla admina nauczyciela i magazyniera</h1>
@@ -10,4 +9,4 @@ function MainPage() {
   )
 }
 
-export default MainPage
+export default AdminPage
