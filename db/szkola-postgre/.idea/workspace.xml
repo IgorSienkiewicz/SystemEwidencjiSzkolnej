@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2acd4bf-f958-4528-ba4b-1b5909c08d4b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/943958d2-fe31-4349-bb63-5cb0dbaee931.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/943958d2-fe31-4349-bb63-5cb0dbaee931/storage_v2/_src_/database/itdb.6XoxAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/943958d2-fe31-4349-bb63-5cb0dbaee931/storage_v2/_src_/database/itdb.6XoxAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/943958d2-fe31-4349-bb63-5cb0dbaee931/storage_v2/_src_/database/itdb.6XoxAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/943958d2-fe31-4349-bb63-5cb0dbaee931/storage_v2/_src_/database/itdb.6XoxAA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/backend/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/backend/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/backend/Models/Role.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/backend/Models/Role.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../backend/backend/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../backend/backend/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../frontendReact/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../frontendReact/src/Logowanie.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/Logowanie.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/MainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/index.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,20 +26,24 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="3AhWoAaTEoyZYgV2xkbEURw4Xwg" />
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/sienk"
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sienk&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c2acd4bf-f958-4528-ba4b-1b5909c08d4b" name="Changes" comment="" />

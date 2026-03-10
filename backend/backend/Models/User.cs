@@ -13,5 +13,9 @@ namespace backend.Models
         public string email { get; set; } = string.Empty;
         public string haslo { get; set; } = string.Empty;
         public int rola_id { get; set; }
+        public string login {get; set; } = string.Empty;
+
+        [ForeignKey("rola_id")]
+        public Role? Rola {get; set;}
     }
 }

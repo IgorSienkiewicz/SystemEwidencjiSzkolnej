@@ -52,6 +52,7 @@ function Logowanie() {
             />
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <button id="loguj" onClick={Login}>Zaloguj się</button>
+            <a href="./rejestracja">Zarejestuj się!</a>
         </div>
     );
 }

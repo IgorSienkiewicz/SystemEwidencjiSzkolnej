@@ -7,7 +7,8 @@ namespace backend.Models
     public class Role
     {
         [Key]
-        public int id { get; set; }
-        public string nazwa { get; set; } = string.Empty;
+        [Column("Id")]
+        public int Id { get; set; }
+        public string RoleName { get; set; } = string.Empty;
     }
 }

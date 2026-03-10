@@ -18,11 +18,15 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
         var user = await _db.Users
-            .FirstOrDefaultAsync(u => u.imie == request.Login && u.haslo == request.Haslo);
+            .Include(u => u.Rola)
+            .FirstOrDefaultAsync(u => u.login.Trim() == request.Login.Trim() && u.haslo.Trim() == request.Haslo.Trim());
 
         if (user == null)
             return Unauthorized(new { message = "Błędny login lub hasło" });
 
-        return Ok(new { message = "Zalogowano pomyślnie!" });
+        return Ok(new { 
+            message = "Zalogowano pomyślnie!",
+            rola = user.Rola!.RoleName 
+        });
     }
 }
