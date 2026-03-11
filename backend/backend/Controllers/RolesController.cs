@@ -1,5 +1,4 @@
 ﻿using backend.Data;
-using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,30 +6,20 @@ using Microsoft.EntityFrameworkCore;
 [Route("api/[controller]")]
 public class RolesController : ControllerBase
 {
-    private readonly AppDbContext _context;
-    public RolesController(AppDbContext context)
+    private readonly AppDbContext _db;
+
+    public RolesController(AppDbContext db)
     {
-        _context = context;
+        _db = db;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetRoles()
     {
-        var roles = await _context.Roles.ToListAsync();
-        return Ok(roles);
-    }
+        var roles = await _db.Roles
+            .Select(r => new { r.Id, r.RoleName })
+            .ToListAsync();
 
-    [HttpGet("testdb")]
-    public IActionResult TestDb()
-    {
-        try
-        {
-            var canConnect = _context.Database.CanConnect();
-            return Ok(new { Success = canConnect });
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new { Error = ex.Message });
-        }
+        return Ok(roles);
     }
 }

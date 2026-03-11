@@ -23,7 +23,7 @@ public class RegisterController : ControllerBase
             imie = request.Imie,
             nazwisko = request.Nazwisko,
             email = request.Email,
-            rola_id = 3
+            rola_id = 2
         };
 
         _db.Users.Add(user);

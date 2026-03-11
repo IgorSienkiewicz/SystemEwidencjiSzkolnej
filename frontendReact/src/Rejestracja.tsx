@@ -23,8 +23,8 @@ function Rejestracja() {
             body: JSON.stringify({ login, haslo: password, imie, nazwisko, email })
         });
 
-        const text = await response.text();  // ← najpierw tekst
-        const data = text ? JSON.parse(text) : {};  // ← parsuj tylko jeśli nie pusty
+        const text = await response.text();
+        const data = text ? JSON.parse(text) : {};
 
         if (response.ok) {
             alert("Zarejestrowano pomyślnie");
