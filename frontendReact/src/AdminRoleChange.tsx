@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
-import './AdminPage.css';
+import './AdminRoleChange.css';
+import { useNavigate } from 'react-router-dom';
 
-function AdminPage() {
+function AdminRoleChange() {
+
+    const naviagte = useNavigate();
     const [dane, setDane] = useState<any[]>([]);
     const [role, setRole] = useState<any[]>([]);
 
@@ -58,7 +61,7 @@ function AdminPage() {
                                     >
                                         {role.map(r => (
                                             <option key={r.id} value={r.id}>
-                                                {r.nazwa}
+                                                {r.id}
                                             </option>
                                         ))}
                                     </select>
@@ -67,9 +70,10 @@ function AdminPage() {
                         ))}
                     </tbody>
                 </table>
+                <button onClick={() => naviagte("/admin")}>Powrót do strony głównej</button>
             </div>
         </div>
     );
 }
 
-export default AdminPage;
+export default AdminRoleChange;

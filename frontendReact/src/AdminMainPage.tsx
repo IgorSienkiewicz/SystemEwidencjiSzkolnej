@@ -1,0 +1,15 @@
+import { Route, useNavigate } from "react-router-dom";
+import AdminRoleChange from "./AdminRoleChange";
+
+function AdminMainPage(){
+    const navigate = useNavigate();
+    return(
+        <div>
+            <button onClick={() => navigate("/adminRoleChange")}>Zmiana Roli</button>
+            <button>Zarządzanie bazą danych sprzętu (do zrobienia)</button>
+            <button onClick={() => navigate("/")}>Wyloguj się</button>
+        </div>
+    )
+}
+
+export default AdminMainPage;
