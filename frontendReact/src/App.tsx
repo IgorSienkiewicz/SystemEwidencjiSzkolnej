@@ -9,6 +9,7 @@ import AdminMainPage from './AdminMainPage'
 import AdminRoleChange from './AdminRoleChange'
 import ProtectedRoute from './ProtectedRoute'
 import MagazynierEquipmentPage from './MagazynierEquipmentPage'
+import AdminEquipmentManagement from './AdminEquipmentManagment'
 
 function App() {
   return (
@@ -49,6 +50,11 @@ function App() {
     <Route path='/magazynier/ewidencjaSprzetu' element={
         <ProtectedRoute dozwoloneRole={['Magazynier']}>
             <MagazynierEquipmentPage />
+        </ProtectedRoute>
+    }/>
+    <Route path='/admin/equipmentManagement' element={
+        <ProtectedRoute dozwoloneRole={['Admin']}>
+            <AdminEquipmentManagement />
         </ProtectedRoute>
     }/>
 </Routes>

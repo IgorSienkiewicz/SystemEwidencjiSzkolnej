@@ -8,7 +8,7 @@ function NauczycielMainPage() {
 
     useEffect(() => {
         fetch("/api/classroom")
-            .then(res => res.json())  // ← było .json bez ()
+            .then(res => res.json())
             .then(data => setDane(data));
     }, []);
 

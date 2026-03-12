@@ -31,4 +31,20 @@ public class EquipmentController : ControllerBase
 
         return Ok(equipment);
     }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateEquipment(int id, [FromBody] UpdateEquipmentRequest request)
+    {
+        var equipment = await _db.Equipment.FindAsync(id);
+        if (equipment == null) return NotFound();
+
+        equipment.typ = request.Typ;
+        equipment.producent = request.Producent;
+        equipment.numer_seryjny = request.NumerSeryjny;
+        equipment.status = request.Status;
+        equipment.lokalizacja_id = request.LokalizacjaId;
+
+        await _db.SaveChangesAsync();
+        return Ok(new { message = "Zaktualizowano sprzęt" });
+    }
 }
