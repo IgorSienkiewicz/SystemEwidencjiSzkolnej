@@ -11,5 +11,6 @@ namespace backend.Data
         public DbSet<Equipment> Equipment { get; set; }
         public DbSet<EquipmentHistory> EquipmentHistory { get; set; }
         public DbSet<Location> Location { get; set; }
+        public DbSet<Classroom> Classrooms { get; set; }
     }
 }
