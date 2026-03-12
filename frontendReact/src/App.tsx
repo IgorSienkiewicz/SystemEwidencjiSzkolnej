@@ -4,10 +4,11 @@ import Logowanie from './Logowanie'
 import Rejestracja from './Rejestracja'
 import MainPage from './MainPage'
 import NauczycielMainPage from './NauczycielMainPage'
-import MagazynierPage from './MagazynierPage'
+import MagazynierMainPage from './MagazynierMainPage'
 import AdminMainPage from './AdminMainPage'
 import AdminRoleChange from './AdminRoleChange'
 import ProtectedRoute from './ProtectedRoute'
+import MagazynierEquipmentPage from './MagazynierEquipmentPage'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <AdminMainPage />
         </ProtectedRoute>
     } />
-    <Route path="/adminRoleChange" element={
+    <Route path="/admin/RoleChange" element={
         <ProtectedRoute dozwoloneRole={['Admin']}>
             <AdminRoleChange />
         </ProtectedRoute>
@@ -32,7 +33,7 @@ function App() {
     } />
     <Route path="/magazynier" element={
         <ProtectedRoute dozwoloneRole={['Magazynier']}>
-            <MagazynierPage />
+            <MagazynierMainPage />
         </ProtectedRoute>
     } />
     <Route path="/main" element={
@@ -40,6 +41,16 @@ function App() {
             <MainPage />
         </ProtectedRoute>
     } />
+    <Route path="/magazynier" element={
+        <ProtectedRoute dozwoloneRole={['Magazynier']}>
+            <MagazynierMainPage/>
+        </ProtectedRoute>
+    }/>
+    <Route path='/magazynier/ewidencjaSprzetu' element={
+        <ProtectedRoute dozwoloneRole={['Magazynier']}>
+            <MagazynierEquipmentPage />
+        </ProtectedRoute>
+    }/>
 </Routes>
   )
 }

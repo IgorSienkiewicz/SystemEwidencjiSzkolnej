@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 
 function ProtectedRoute({children, dozwoloneRole}: {
     children: React.ReactNode
-    dozwoloneRole: string
+    dozwoloneRole?: string[]
 }){
     const userStr = localStorage.getItem('user')
     if(!userStr){

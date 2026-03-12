@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-.admin-container {
+.equipment-container {
     min-height: 100vh;
     background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
     padding: 40px;
     font-family: 'Segoe UI', sans-serif;
 }
 
-.admin-title {
+.equipment-title {
     font-size: 32px;
     color: #e2e8f0;
     margin-bottom: 35px;
@@ -29,20 +29,20 @@
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
-    animation: fadeInUp 0.5s ease;
     margin-bottom: 30px;
+    animation: fadeInUp 0.5s ease;
 }
 
-.admin-table {
+.equipment-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.admin-table thead {
+.equipment-table thead {
     background: linear-gradient(90deg, #4f46e5, #818cf8);
 }
 
-.admin-table th {
+.equipment-table th {
     padding: 16px 22px;
     text-align: left;
     font-weight: 600;
@@ -52,55 +52,54 @@
     color: #e0e7ff;
 }
 
-.admin-table td {
+.equipment-table td {
     padding: 14px 22px;
     font-size: 14px;
     color: #cbd5e1;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.admin-table tbody tr {
+.equipment-table tbody tr {
     transition: all 0.2s ease;
 }
 
-.admin-table tbody tr:hover {
+.equipment-table tbody tr:hover {
     background-color: rgba(129, 140, 248, 0.1);
     transform: scale(1.002);
 }
 
-.admin-table tbody tr:hover td {
+.equipment-table tbody tr:hover td {
     color: #e2e8f0;
 }
 
-.admin-table tbody tr:last-child td {
+.equipment-table tbody tr:last-child td {
     border-bottom: none;
 }
 
-.role-select {
-    padding: 7px 14px;
-    border: 1px solid rgba(129, 140, 248, 0.3);
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.06);
-    color: #e2e8f0;
-    font-size: 13px;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s ease;
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-.role-select:hover {
-    border-color: #818cf8;
+.status-badge.dostępny {
     background-color: rgba(129, 140, 248, 0.15);
+    color: #818cf8;
+    border: 1px solid rgba(129, 140, 248, 0.3);
 }
 
-.role-select:focus {
-    border-color: #818cf8;
-    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+.status-badge.niedostępny {
+    background-color: rgba(248, 113, 113, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(248, 113, 113, 0.3);
 }
 
-.role-select option {
-    background-color: #1e1e3a;
-    color: #e2e8f0;
+.status-badge.naprawa {
+    background-color: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
 }
 
 .back-button {
