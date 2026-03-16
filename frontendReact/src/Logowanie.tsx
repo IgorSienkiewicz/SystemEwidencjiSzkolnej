@@ -21,7 +21,7 @@ function Logowanie() {
 
         if (response.ok) {
             console.log("Zalogowano pomyślnie:", data.message);
-            localStorage.setItem('user', JSON.stringify({ rola: data.rola })); // ← dodaj tę linię
+            localStorage.setItem('user', JSON.stringify({ rola: data.rola })); 
             
             if (data.rola === 'Admin') navigate('/admin');
             else if (data.rola === 'Nauczyciel') navigate('/nauczyciel');

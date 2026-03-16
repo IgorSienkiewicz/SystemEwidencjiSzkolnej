@@ -28,9 +28,9 @@ function MagazynierEquipmentPage() {
                         </tr>
                     </thead>
                     <tbody>
-                        {dane.map(equipment => (
+                        {dane.map((equipment, index) => (
                             <tr key={equipment.id}>
-                                <td>{equipment.id}</td>
+                                <td>{index+1}</td>
                                 <td>{equipment.typ}</td>
                                 <td>{equipment.producent}</td>
                                 <td>{equipment.numer_seryjny}</td>

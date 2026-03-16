@@ -3,19 +3,24 @@ import './AdminRoleChange.css';
 import { useNavigate } from 'react-router-dom';
 
 function AdminRoleChange() {
-
-    const naviagte = useNavigate();
+    const navigate = useNavigate();
     const [dane, setDane] = useState<any[]>([]);
     const [role, setRole] = useState<any[]>([]);
 
     useEffect(() => {
         fetch("/api/users")
             .then(res => res.json())
-            .then(data => setDane(data));
+            .then(data => {
+                console.log("users:", data);
+                setDane(data);
+            });
 
         fetch("/api/roles")
             .then(res => res.json())
-            .then(data => setRole(data));
+            .then(data => {
+                console.log("roles:", data);
+                setRole(data);
+            });
     }, []);
 
     const zmienRole = async (userId: number, nowaRolaId: number) => {
@@ -37,7 +42,7 @@ function AdminRoleChange() {
                 <table className="admin-table">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Lp.</th>
                             <th>Imię</th>
                             <th>Nazwisko</th>
                             <th>Email</th>
@@ -46,9 +51,9 @@ function AdminRoleChange() {
                         </tr>
                     </thead>
                     <tbody>
-                        {dane.map(user => (
+                        {dane.map((user, index) => (
                             <tr key={user.id}>
-                                <td>{user.id}</td>
+                                <td>{index + 1}</td>
                                 <td>{user.imie}</td>
                                 <td>{user.nazwisko}</td>
                                 <td>{user.email}</td>
@@ -56,12 +61,12 @@ function AdminRoleChange() {
                                 <td>
                                     <select
                                         className="role-select"
-                                        defaultValue={user.rola_id}
+                                        value={user.rola_id}
                                         onChange={(e) => zmienRole(user.id, Number(e.target.value))}
                                     >
                                         {role.map(r => (
                                             <option key={r.id} value={r.id}>
-                                                {r.id}
+                                                {r.roleName}
                                             </option>
                                         ))}
                                     </select>
@@ -70,7 +75,9 @@ function AdminRoleChange() {
                         ))}
                     </tbody>
                 </table>
-                <button onClick={() => naviagte("/admin")}>Powrót do strony głównej</button>
+                <button className="back-button" onClick={() => navigate("/admin")}>
+                    ← Powrót do strony głównej
+                </button>
             </div>
         </div>
     );

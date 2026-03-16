@@ -1,13 +1,25 @@
-import { Route, useNavigate } from "react-router-dom";
-import AdminRoleChange from "./AdminRoleChange";
+import { useNavigate } from "react-router-dom";
+import './AdminMainPage.css';
 
-function AdminMainPage(){
+function AdminMainPage() {
     const navigate = useNavigate();
-    return(
-        <div>
-            <button onClick={() => navigate("/admin/RoleChange")}>Zmiana Roli</button>
-            <button onClick={() => navigate("/admin/equipmentManagement")}>Zarządzanie bazą danych sprzętu (do zrobienia)</button>
-            <button onClick={() => navigate("/")}>Wyloguj się</button>
+    return (
+        <div className="main-container">
+            <h1 className="main-title">Panel Administratora</h1>
+            <div className="main-buttons">
+                <button className="main-button" onClick={() => navigate("/admin/RoleChange")}>
+                    👥 Zmiana Roli
+                </button>
+                <button className="main-button" onClick={() => navigate("/admin/EquipmentManagement")}>
+                    🖥️ Zarządzanie sprzętem
+                </button>
+                <button className="main-button logout" onClick={() => {
+                    localStorage.removeItem('user');
+                    navigate("/");
+                }}>
+                    🚪 Wyloguj się
+                </button>
+            </div>
         </div>
     )
 }

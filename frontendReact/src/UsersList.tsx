@@ -31,9 +31,9 @@ function RolesList() {
           </tr>
         </thead>
         <tbody>
-          {roles.map(role => (
+          {roles.map((role,index) => (
             <tr key={role.id}>
-              <td>{role.id}</td>
+              <td>{index+1}</td>
               <td>{role.roleName}</td>
             </tr>
           ))}

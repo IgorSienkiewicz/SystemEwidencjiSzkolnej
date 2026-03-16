@@ -27,9 +27,9 @@ function NauczycielMainPage() {
                       </tr>
                   </thead>
                   <tbody>
-                      {dane.map(classroom => (
+                      {dane.map((classroom,index) => (
                           <tr key={classroom.id}>
-                              <td>{classroom.id}</td>
+                              <td>{index+1}</td>
                               <td>{classroom.nr_sali}</td>
                               <td>{classroom.ilosc_komputerow}</td>
                               <td>{classroom.lokalizacja}</td>

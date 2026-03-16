@@ -26,7 +26,7 @@ public class AuthController : ControllerBase
 
         return Ok(new { 
             message = "Zalogowano pomyślnie!",
-            rola = user.Rola!.RoleName 
+            rola = user.Rola!.RoleName
         });
     }
 }
