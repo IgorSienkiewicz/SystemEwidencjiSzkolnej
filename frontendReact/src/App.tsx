@@ -10,6 +10,7 @@ import AdminRoleChange from './AdminRoleChange'
 import ProtectedRoute from './ProtectedRoute'
 import MagazynierEquipmentPage from './MagazynierEquipmentPage'
 import AdminEquipmentManagement from './AdminEquipmentManagment'
+import MagazynierAddEquipment from './MagazynierAddEquipmentPage'
 
 function App() {
   return (
@@ -57,6 +58,11 @@ function App() {
             <AdminEquipmentManagement />
         </ProtectedRoute>
     }/>
+    <Route path="/magazynier/addEquipment" element={
+        <ProtectedRoute dozwoloneRole={['Magazynier']}>
+            <MagazynierAddEquipment />
+        </ProtectedRoute>
+    } />
 </Routes>
   )
 }

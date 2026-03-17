@@ -47,4 +47,22 @@ public class EquipmentController : ControllerBase
         await _db.SaveChangesAsync();
         return Ok(new { message = "Zaktualizowano sprzęt" });
     }
+
+    [HttpPost]
+    public async Task<IActionResult> AddEquipment([FromBody] AddEquipmentRequest request)
+    {
+        var equipment = new Equipment
+        {
+            typ = request.Typ,
+            producent = request.Producent,
+            numer_seryjny = request.NumerSeryjny,
+            status = request.Status,
+            lokalizacja_id = request.LokalizacjaId
+        };
+
+        _db.Equipment.Add(equipment);
+        await _db.SaveChangesAsync();
+
+        return Ok(new { message = "Dodano sprzęt" });
+    }
 }

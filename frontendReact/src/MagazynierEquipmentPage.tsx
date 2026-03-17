@@ -48,6 +48,7 @@ function MagazynierEquipmentPage() {
             <button className="back-button" onClick={() => navigate("/magazynier")}>
                 ← Powrót do strony głównej
             </button>
+            
         </div>
     )
 }

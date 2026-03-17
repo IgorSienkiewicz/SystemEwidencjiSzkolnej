@@ -11,7 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddCors(options => {
-    options.AddPolicy("AllowReact", policy =>
+    options.AddPolicy("AllowFrontend", policy =>
         policy.WithOrigins("http://localhost:3000")
               .AllowAnyHeader()
               .AllowAnyMethod());
