@@ -65,4 +65,17 @@ public class EquipmentController : ControllerBase
 
         return Ok(new { message = "Dodano sprzęt" });
     }
+    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteEquipment(int id)
+    {
+        var equipment = await _db.Equipment.FindAsync(id);
+        if (equipment == null)
+            return NotFound(new { message = "Nie znaleziono sprzętu" });
+
+        _db.Equipment.Remove(equipment);
+        await _db.SaveChangesAsync();
+
+        return Ok(new { message = "Usunięto sprzęt" });
+    }
 }

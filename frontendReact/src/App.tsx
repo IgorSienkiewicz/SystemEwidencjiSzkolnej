@@ -11,6 +11,7 @@ import ProtectedRoute from './ProtectedRoute'
 import MagazynierEquipmentPage from './MagazynierEquipmentPage'
 import AdminEquipmentManagement from './AdminEquipmentManagment'
 import MagazynierAddEquipment from './MagazynierAddEquipmentPage'
+import MagazynierDeleteEquipment from './MagazynierDeleteEquipment'
 
 function App() {
   return (
@@ -61,6 +62,11 @@ function App() {
     <Route path="/magazynier/addEquipment" element={
         <ProtectedRoute dozwoloneRole={['Magazynier']}>
             <MagazynierAddEquipment />
+        </ProtectedRoute>
+    } />
+    <Route path="/magazynier/deleteEquipment" element={
+        <ProtectedRoute dozwoloneRole={['Magazynier']}>
+            <MagazynierDeleteEquipment />
         </ProtectedRoute>
     } />
 </Routes>

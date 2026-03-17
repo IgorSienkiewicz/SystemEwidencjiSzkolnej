@@ -21,6 +21,6 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseCors("AllowReact");
+app.UseCors("AllowFrontend");
 app.MapControllers();
 app.Run();
