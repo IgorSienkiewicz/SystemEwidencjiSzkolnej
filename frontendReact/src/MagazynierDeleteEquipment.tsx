@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import './MagazynierDeleteEquipment.css';
 
 interface Equipment {
     id: number;
@@ -36,7 +37,6 @@ function MagazynierDeleteEquipment() {
         if (!confirmed) return;
 
         setLoading(true);
-
         try {
             const response = await fetch(`/api/equipment/${selectedId}`, {
                 method: "DELETE",
@@ -60,23 +60,37 @@ function MagazynierDeleteEquipment() {
     };
 
     return (
-        <div>
-            <h2>Usuń sprzęt</h2>
-            <select
-                value={selectedId}
-                onChange={(e) => setSelectedId(e.target.value)}
-            >
-                <option value="">-- Wybierz sprzęt --</option>
-                {equipment.map((e) => (
-                    <option key={e.id} value={e.id}>
-                        {e.typ} | {e.producent} | {e.numer_seryjny} | {e.dostepny ? "Dostępny" : "Niedostępny"}
-                    </option>
-                ))}
-            </select>
-            <button onClick={handleDelete} disabled={loading || !selectedId}>
-                {loading ? "Usuwanie..." : "Usuń"}
-            </button>
-            <button onClick={() => navigate("/magazynier")}>Powrót</button>
+        <div className="delete-container">
+            <h2 className="delete-title">Usuń sprzęt</h2>
+            <div className="delete-card">
+                <div>
+                    <label className="delete-label">Wybierz sprzęt</label>
+                    <select
+                        className="delete-select"
+                        value={selectedId}
+                        onChange={(e) => setSelectedId(e.target.value)}
+                    >
+                        <option value="">-- Wybierz sprzęt --</option>
+                        {equipment.map((e) => (
+                            <option key={e.id} value={e.id}>
+                                {e.typ} | {e.producent} | {e.numer_seryjny} | {e.dostepny ? "Dostępny" : "Niedostępny"}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="delete-buttons">
+                    <button
+                        className="delete-confirm-button"
+                        onClick={handleDelete}
+                        disabled={loading || !selectedId}
+                    >
+                        {loading ? "Usuwanie..." : "🗑️ Usuń"}
+                    </button>
+                    <button className="delete-back-button" onClick={() => navigate("/magazynier")}>
+                        ← Powrót
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }

@@ -25,9 +25,10 @@ public class EquipmentController : ControllerBase
                 e.producent,
                 e.numer_seryjny,
                 e.dostepny,
-                lokalizacja = e.Location!.nazwa
+                lokalizacja = e.Location != null ? e.Location.nazwa : "Brak lokalizacji"
             })
             .ToListAsync();
+
         return Ok(equipment);
     }
 

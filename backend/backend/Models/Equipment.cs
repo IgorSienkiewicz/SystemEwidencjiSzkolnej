@@ -13,8 +13,13 @@ namespace backend.Models
         public string producent { get; set; } = string.Empty;
         public string numer_seryjny { get; set; } = string.Empty;
         public bool dostepny { get; set; }
-        public int lokalizacja_id { get; set; }
+        public int? lokalizacja_id { get; set; }
+        public int? id_sali { get; set; }
+
         [ForeignKey("lokalizacja_id")]
         public Location? Location { get; set; }
+
+        [ForeignKey("id_sali")]
+        public Classroom? Classroom { get; set; }
     }
 }

@@ -12,6 +12,7 @@ import MagazynierEquipmentPage from './MagazynierEquipmentPage'
 import AdminEquipmentManagement from './AdminEquipmentManagment'
 import MagazynierAddEquipment from './MagazynierAddEquipmentPage'
 import MagazynierDeleteEquipment from './MagazynierDeleteEquipment'
+import NauczycielReserveEquipment from './NauczycielReserveEquipment'
 
 function App() {
   return (
@@ -24,6 +25,11 @@ function App() {
             <AdminMainPage />
         </ProtectedRoute>
     } />
+    <Route path="/nauczyciel/rezerwacja" element={
+    <ProtectedRoute dozwoloneRole={['Nauczyciel']}>
+        <NauczycielReserveEquipment />
+    </ProtectedRoute>
+} />
     <Route path="/nauczyciel/sala/:id" element={
     <ProtectedRoute dozwoloneRole={['Nauczyciel']}>
         <NauczycielSalaPage />
