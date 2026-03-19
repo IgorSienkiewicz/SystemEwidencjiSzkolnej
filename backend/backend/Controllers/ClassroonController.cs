@@ -65,7 +65,7 @@ public class ClassroomController : ControllerBase
                     c.Equipment.typ,
                     c.Equipment.producent,
                     c.Equipment.numer_seryjny,
-                    c.Equipment.status
+                    c.Equipment.dostepny
                 }
             })
             .FirstOrDefaultAsync();

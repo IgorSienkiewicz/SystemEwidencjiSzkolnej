@@ -13,8 +13,8 @@ namespace backend.Models
         [JsonPropertyName("numerSeryjny")]
         public string NumerSeryjny { get; set; } = string.Empty;
 
-        [JsonPropertyName("status")]
-        public string Status { get; set; } = string.Empty;
+        [JsonPropertyName("dostepny")]
+        public bool Dostepny { get; set; }
 
         [JsonPropertyName("lokalizacjaId")]
         public int LokalizacjaId { get; set; }

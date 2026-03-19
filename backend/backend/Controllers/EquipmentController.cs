@@ -24,11 +24,10 @@ public class EquipmentController : ControllerBase
                 e.typ,
                 e.producent,
                 e.numer_seryjny,
-                e.status,
+                e.dostepny,
                 lokalizacja = e.Location!.nazwa
             })
             .ToListAsync();
-
         return Ok(equipment);
     }
 
@@ -41,11 +40,11 @@ public class EquipmentController : ControllerBase
         equipment.typ = request.Typ;
         equipment.producent = request.Producent;
         equipment.numer_seryjny = request.NumerSeryjny;
-        equipment.status = request.Status;
+        equipment.dostepny = request.Dostepny;
         equipment.lokalizacja_id = request.LokalizacjaId;
 
         await _db.SaveChangesAsync();
-        return Ok(new { message = "Zaktualizowano sprzęt" });
+        return Ok(new { message = "Zaktualizowano sprzet" });
     }
 
     [HttpPost]
@@ -56,26 +55,24 @@ public class EquipmentController : ControllerBase
             typ = request.Typ,
             producent = request.Producent,
             numer_seryjny = request.NumerSeryjny,
-            status = request.Status,
+            dostepny = request.Dostepny,
             lokalizacja_id = request.LokalizacjaId
         };
 
         _db.Equipment.Add(equipment);
         await _db.SaveChangesAsync();
-
-        return Ok(new { message = "Dodano sprzęt" });
+        return Ok(new { message = "Dodano sprzet" });
     }
-    
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteEquipment(int id)
     {
         var equipment = await _db.Equipment.FindAsync(id);
         if (equipment == null)
-            return NotFound(new { message = "Nie znaleziono sprzętu" });
+            return NotFound(new { message = "Nie znaleziono sprzetu" });
 
         _db.Equipment.Remove(equipment);
         await _db.SaveChangesAsync();
-
-        return Ok(new { message = "Usunięto sprzęt" });
+        return Ok(new { message = "Usunieto sprzet" });
     }
 }

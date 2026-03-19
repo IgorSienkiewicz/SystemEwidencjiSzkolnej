@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ProtectedRoute from "./ProtectedRoute";
 
 interface Equipment {
     id: number;
     typ: string;
     producent: string;
     numer_seryjny: string;
-    status: string;
+    dostepny: boolean;
     lokalizacja: string;
 }
 
@@ -16,6 +15,7 @@ function MagazynierDeleteEquipment() {
     const [selectedId, setSelectedId] = useState<string>("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
     useEffect(() => {
         fetchEquipment();
     }, []);
@@ -37,22 +37,31 @@ function MagazynierDeleteEquipment() {
 
         setLoading(true);
 
-        const response = await fetch(`/api/equipment/${selectedId}`, {
-            method: "DELETE",
-        });
+        try {
+            const response = await fetch(`/api/equipment/${selectedId}`, {
+                method: "DELETE",
+            });
 
-        const result = await response.json();
-        alert(result.message);
+            if (!response.ok) {
+                alert(`Błąd serwera: ${response.status} ${response.statusText}`);
+                return;
+            }
 
-        setSelectedId("");
-        await fetchEquipment();
-        setLoading(false);
+            const result = await response.json();
+            alert(result.message);
+            setSelectedId("");
+            await fetchEquipment();
+        } catch (err) {
+            alert("Wystąpił błąd połączenia z serwerem");
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <div>
             <h2>Usuń sprzęt</h2>
-
             <select
                 value={selectedId}
                 onChange={(e) => setSelectedId(e.target.value)}
@@ -60,15 +69,14 @@ function MagazynierDeleteEquipment() {
                 <option value="">-- Wybierz sprzęt --</option>
                 {equipment.map((e) => (
                     <option key={e.id} value={e.id}>
-                        {e.typ} | {e.producent} | {e.numer_seryjny} | {e.lokalizacja}
+                        {e.typ} | {e.producent} | {e.numer_seryjny} | {e.dostepny ? "Dostępny" : "Niedostępny"}
                     </option>
                 ))}
             </select>
-
             <button onClick={handleDelete} disabled={loading || !selectedId}>
                 {loading ? "Usuwanie..." : "Usuń"}
             </button>
-            <button onClick={() => (navigate("/magazynier"), <ProtectedRoute dozwoloneRole={['']}/>)}>Powrót</button>
+            <button onClick={() => navigate("/magazynier")}>Powrót</button>
         </div>
     );
 }

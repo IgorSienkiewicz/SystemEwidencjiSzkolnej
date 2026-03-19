@@ -23,20 +23,20 @@ function MagazynierEquipmentPage() {
                             <th>Typ</th>
                             <th>Producent</th>
                             <th>Numer Seryjny</th>
-                            <th>Status</th>
+                            <th>Dostępność</th>
                             <th>Lokalizacja</th>
                         </tr>
                     </thead>
                     <tbody>
                         {dane.map((equipment, index) => (
                             <tr key={equipment.id}>
-                                <td>{index+1}</td>
+                                <td>{index + 1}</td>
                                 <td>{equipment.typ}</td>
                                 <td>{equipment.producent}</td>
                                 <td>{equipment.numer_seryjny}</td>
                                 <td>
-                                    <span className={`status-badge ${equipment.status.toLowerCase()}`}>
-                                        {equipment.status}
+                                    <span className={`status-badge ${equipment.dostepny ? "sprawny" : "uszkodzony"}`}>
+                                        {equipment.dostepny ? "Dostępny" : "Niedostępny"}
                                     </span>
                                 </td>
                                 <td>{equipment.lokalizacja}</td>
@@ -48,7 +48,6 @@ function MagazynierEquipmentPage() {
             <button className="back-button" onClick={() => navigate("/magazynier")}>
                 ← Powrót do strony głównej
             </button>
-            
         </div>
     )
 }

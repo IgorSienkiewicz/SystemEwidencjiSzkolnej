@@ -8,13 +8,13 @@ namespace backend.Models
     {
         [Key]
         [Column("id")]
-        public int id {get; set;}
-        public string typ {get; set;} = String.Empty;
-        public string producent {get; set;} = String.Empty;
-        public string numer_seryjny {get; set;} = String.Empty;
-        public string status {get; set;} = String.Empty;
-        public int lokalizacja_id {get; set;}
+        public int id { get; set; }
+        public string typ { get; set; } = string.Empty;
+        public string producent { get; set; } = string.Empty;
+        public string numer_seryjny { get; set; } = string.Empty;
+        public bool dostepny { get; set; }
+        public int lokalizacja_id { get; set; }
         [ForeignKey("lokalizacja_id")]
-        public Location? Location {get; set;}
+        public Location? Location { get; set; }
     }
 }

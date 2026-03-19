@@ -25,7 +25,7 @@ function NauczycielSalaPage() {
                             <th>Typ</th>
                             <th>Producent</th>
                             <th>Numer seryjny</th>
-                            <th>Status</th>
+                            <th>Dostępność</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,7 +34,7 @@ function NauczycielSalaPage() {
                                 <td>{dane.sprzet.typ}</td>
                                 <td>{dane.sprzet.producent}</td>
                                 <td>{dane.sprzet.numer_seryjny}</td>
-                                <td>{dane.sprzet.status}</td>
+                                <td>{dane.sprzet.dostepny ? "Dostępny" : "Niedostępny"}</td>
                             </tr>
                         )}
                     </tbody>

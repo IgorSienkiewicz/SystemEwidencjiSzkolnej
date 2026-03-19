@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c2acd4bf-f958-4528-ba4b-1b5909c08d4b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/AdminMainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/AdminMainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/MagazynierDeleteEquipment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/MagazynierDeleteEquipment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/MagazynierMainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/MagazynierMainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/MainPage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/NauczycielMainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/NauczycielMainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontendReact/src/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontendReact/src/ProtectedRoute.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
