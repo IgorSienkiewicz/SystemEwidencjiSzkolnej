@@ -12,6 +12,7 @@ function ProtectedRoute({children, dozwoloneRole}: {
     const user = JSON.parse(userStr);
 
     if(dozwoloneRole && !dozwoloneRole.includes(user.rola)){
+        localStorage.clear();
         return <Navigate to="/"/>
     }
     return <>{children}</>

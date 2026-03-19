@@ -2,12 +2,12 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Logowanie from './Logowanie'
 import Rejestracja from './Rejestracja'
-import MainPage from './MainPage'
 import NauczycielMainPage from './NauczycielMainPage'
 import MagazynierMainPage from './MagazynierMainPage'
 import AdminMainPage from './AdminMainPage'
 import AdminRoleChange from './AdminRoleChange'
 import ProtectedRoute from './ProtectedRoute'
+import NauczycielSalaPage from './NauczycielSalaPage'
 import MagazynierEquipmentPage from './MagazynierEquipmentPage'
 import AdminEquipmentManagement from './AdminEquipmentManagment'
 import MagazynierAddEquipment from './MagazynierAddEquipmentPage'
@@ -24,6 +24,11 @@ function App() {
             <AdminMainPage />
         </ProtectedRoute>
     } />
+    <Route path="/nauczyciel/sala/:id" element={
+    <ProtectedRoute dozwoloneRole={['Nauczyciel']}>
+        <NauczycielSalaPage />
+    </ProtectedRoute>
+    } />
     <Route path="/admin/RoleChange" element={
         <ProtectedRoute dozwoloneRole={['Admin']}>
             <AdminRoleChange />
@@ -37,11 +42,6 @@ function App() {
     <Route path="/magazynier" element={
         <ProtectedRoute dozwoloneRole={['Magazynier']}>
             <MagazynierMainPage />
-        </ProtectedRoute>
-    } />
-    <Route path="/main" element={
-        <ProtectedRoute dozwoloneRole={['Admin', 'Nauczyciel', 'Magazynier']}>
-            <MainPage />
         </ProtectedRoute>
     } />
     <Route path="/magazynier" element={

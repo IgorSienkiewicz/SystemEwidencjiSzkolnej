@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
 
 interface Equipment {
     id: number;
@@ -13,7 +15,7 @@ function MagazynierDeleteEquipment() {
     const [equipment, setEquipment] = useState<Equipment[]>([]);
     const [selectedId, setSelectedId] = useState<string>("");
     const [loading, setLoading] = useState(false);
-
+    const navigate = useNavigate();
     useEffect(() => {
         fetchEquipment();
     }, []);
@@ -66,6 +68,7 @@ function MagazynierDeleteEquipment() {
             <button onClick={handleDelete} disabled={loading || !selectedId}>
                 {loading ? "Usuwanie..." : "Usuń"}
             </button>
+            <button onClick={() => (navigate("/magazynier"), <ProtectedRoute dozwoloneRole={['']}/>)}>Powrót</button>
         </div>
     );
 }

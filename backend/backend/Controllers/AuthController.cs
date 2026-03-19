@@ -24,9 +24,6 @@ public class AuthController : ControllerBase
         if (user == null)
             return Unauthorized(new { message = "Błędny login lub hasło" });
 
-        return Ok(new { 
-            message = "Zalogowano pomyślnie!",
-            rola = user.Rola!.RoleName
-        });
+        return Ok(new { message = "Zalogowano pomyślnie!", rola = user.Rola!.RoleName, id = user.id });
     }
 }
