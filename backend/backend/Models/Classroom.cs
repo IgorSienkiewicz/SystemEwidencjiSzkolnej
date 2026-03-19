@@ -20,6 +20,7 @@ namespace backend.Models
         [ForeignKey("id_nauczyciela")]
         public User? User { get; set; }
 
+        [InverseProperty("Classroom")]
         public ICollection<Equipment> Equipment { get; set; } = new List<Equipment>();
     }
 }

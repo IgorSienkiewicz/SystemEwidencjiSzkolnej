@@ -25,6 +25,8 @@ function MagazynierEquipmentPage() {
                             <th>Numer Seryjny</th>
                             <th>Dostępność</th>
                             <th>Lokalizacja</th>
+                            <th>Sala</th>
+                            <th>Nauczyciel</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +42,8 @@ function MagazynierEquipmentPage() {
                                     </span>
                                 </td>
                                 <td>{equipment.lokalizacja}</td>
+                                <td>{equipment.sala ?? "-"}</td>
+                                <td>{equipment.nauczyciel ?? "-"}</td>
                             </tr>
                         ))}
                     </tbody>

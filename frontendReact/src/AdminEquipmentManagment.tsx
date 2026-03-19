@@ -21,8 +21,8 @@ function AdminEquipmentManagement() {
                 typ: edytowany.typ,
                 producent: edytowany.producent,
                 numerSeryjny: edytowany.numer_seryjny,
-                status: edytowany.status,
-                lokalizacjaId: edytowany.lokalizacja_id
+                dostepny: edytowany.dostepny,
+                lokalizacjaId: edytowany.lokalizacjaId
             })
         });
 
@@ -48,11 +48,10 @@ function AdminEquipmentManagement() {
                         <input className="register-input" value={edytowany.numer_seryjny}
                             onChange={e => setEdytowany({...edytowany, numer_seryjny: e.target.value})} />
                         <p className="register-label">Status</p>
-                        <select className="role-select" value={edytowany.status}
-                            onChange={e => setEdytowany({...edytowany, status: e.target.value})}>
-                            <option value="dostępny">dostępny</option>
-                            <option value="niedostępny">niedostępny</option>
-                            <option value="naprawa">naprawa</option>
+                        <select className="role-select" value={edytowany.dostepny ? "true" : "false"}
+                            onChange={e => setEdytowany({...edytowany, dostepny: e.target.value === "true"})}>
+                            <option value="true">dostępny</option>
+                            <option value="false">niedostępny</option>
                         </select>
                         <div className="modal-buttons">
                             <button className="back-button" onClick={zapiszEdycje}>Zapisz</button>
@@ -83,13 +82,16 @@ function AdminEquipmentManagement() {
                                 <td>{equipment.producent}</td>
                                 <td>{equipment.numer_seryjny}</td>
                                 <td>
-                                    <span className={`status-badge ${equipment.status.toLowerCase()}`}>
-                                        {equipment.status}
+                                    <span className={`status-badge ${equipment.dostepny ? "sprawny" : "uszkodzony"}`}>
+                                        {equipment.dostepny ? "dostępny" : "niedostępny"}
                                     </span>
                                 </td>
                                 <td>{equipment.lokalizacja}</td>
                                 <td>
-                                    <button className="role-select" onClick={() => setEdytowany(equipment)}>
+                                    <button className="role-select" onClick={() => setEdytowany({
+                                        ...equipment,
+                                        lokalizacjaId: equipment.lokalizacjaId ?? undefined
+                                    })}>
                                         Edytuj
                                     </button>
                                 </td>
