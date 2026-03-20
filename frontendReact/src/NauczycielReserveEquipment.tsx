@@ -89,8 +89,9 @@ function NauczycielReserveEquipment() {
 
             <div className="reserve-card">
                 <div className="reserve-field">
-                    <label className="reserve-label">Wyszukaj sprzęt</label>
+                    <label htmlFor="search-equipment" className="reserve-label">Wyszukaj sprzęt</label>
                     <input
+                        id="search-equipment"
                         className="reserve-input"
                         type="text"
                         placeholder="typ / producent / numer seryjny"
@@ -98,9 +99,11 @@ function NauczycielReserveEquipment() {
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                 </div>
+
                 <div className="reserve-field">
-                    <label className="reserve-label">Sortuj po</label>
+                    <label htmlFor="sort-by" className="reserve-label">Sortuj po</label>
                     <select
+                        id="sort-by"
                         className="reserve-select"
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value as 'typ' | 'producent' | 'numer_seryjny')}
@@ -112,8 +115,9 @@ function NauczycielReserveEquipment() {
                 </div>
 
                 <div className="reserve-field">
-                    <label className="reserve-label">Wybierz salę</label>
+                    <label htmlFor="select-sala" className="reserve-label">Wybierz salę</label>
                     <select
+                        id="select-sala"
                         className="reserve-select"
                         value={selectedSala}
                         onChange={(e) => setSelectedSala(e.target.value)}
@@ -125,14 +129,12 @@ function NauczycielReserveEquipment() {
                             </option>
                         ))}
                     </select>
-                    <small style={{ color: '#cbd5e1' }}>
-                       
-                    </small>
                 </div>
 
                 <div className="reserve-field">
-                    <label className="reserve-label">Wybierz sprzęt</label>
+                    <label htmlFor="select-sprzet" className="reserve-label">Wybierz sprzęt</label>
                     <select
+                        id="select-sprzet"
                         className="reserve-select"
                         value={selectedSprzet}
                         onChange={(e) => setSelectedSprzet(e.target.value)}

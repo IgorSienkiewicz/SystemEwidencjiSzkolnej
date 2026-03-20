@@ -79,8 +79,9 @@ function MagazynierDeleteEquipment() {
             <div className="delete-card">
                 <div className="filter-row">
                     <div>
-                        <label className="delete-label">Szukaj</label>
+                        <label htmlFor="search-query" className="delete-label">Szukaj</label>
                         <input
+                            id="search-query"
                             className="delete-input"
                             type="text"
                             placeholder="typ / producent / nr seryjny / lokalizacja"
@@ -89,8 +90,9 @@ function MagazynierDeleteEquipment() {
                         />
                     </div>
                     <div>
-                        <label className="delete-label">Status dostępności</label>
+                        <label htmlFor="availability-filter" className="delete-label">Status dostępności</label>
                         <select
+                            id="availability-filter"
                             className="delete-select"
                             value={availability}
                             onChange={(e) => setAvailability(e.target.value as 'all' | 'available' | 'unavailable')}
@@ -102,8 +104,9 @@ function MagazynierDeleteEquipment() {
                     </div>
                 </div>
                 <div>
-                    <label className="delete-label">Wybierz sprzęt</label>
+                    <label htmlFor="select-equipment" className="delete-label">Wybierz sprzęt</label>
                     <select
+                        id="select-equipment"
                         className="delete-select"
                         value={selectedId}
                         onChange={(e) => setSelectedId(e.target.value)}

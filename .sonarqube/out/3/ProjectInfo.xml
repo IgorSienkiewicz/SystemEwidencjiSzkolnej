@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>backend</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>1f67f354-bead-4b20-be09-f7d090d61986</ProjectGuid>
+  <FullPath>C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\backend.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResultFiles>
+    <AnalysisResultFile Id="FilesToAnalyze" Location="C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\.sonarqube\conf\3\FilesToAnalyze.txt" />
+  </AnalysisResultFiles>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\.sonarqube\out\3\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\.sonarqube\out\3</Property>
+    <Property Name="sonar.cs.scanner.telemetry">C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\.sonarqube\out\3\Telemetry.json</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>net8.0</TargetFramework>
+</ProjectInfo>

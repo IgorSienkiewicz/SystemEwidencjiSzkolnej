@@ -9,15 +9,10 @@ function MagazynierAddEquipment() {
     const [dostepny, setDostepny] = useState(true);
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const data = {
-            typ,
-            producent,
-            numerSeryjny,
-            dostepny
-        };
+        const data = { typ, producent, numerSeryjny, dostepny };
 
         const response = await fetch("/api/equipment", {
             method: "POST",
@@ -35,8 +30,9 @@ function MagazynierAddEquipment() {
             <form onSubmit={handleSubmit}>
                 <div className="add-card">
                     <div className="add-field">
-                        <label className="add-label">Typ</label>
+                        <label htmlFor="typ" className="add-label">Typ</label>
                         <input
+                            id="typ"
                             className="add-input"
                             placeholder="np. Laptop"
                             value={typ}
@@ -44,8 +40,9 @@ function MagazynierAddEquipment() {
                         />
                     </div>
                     <div className="add-field">
-                        <label className="add-label">Producent</label>
+                        <label htmlFor="producent" className="add-label">Producent</label>
                         <input
+                            id="producent"
                             className="add-input"
                             placeholder="np. Dell"
                             value={producent}
@@ -53,16 +50,18 @@ function MagazynierAddEquipment() {
                         />
                     </div>
                     <div className="add-field">
-                        <label className="add-label">Numer seryjny</label>
+                        <label htmlFor="numer-seryjny" className="add-label">Numer seryjny</label>
                         <input
+                            id="numer-seryjny"
                             className="add-input"
                             placeholder="np. SN-001"
                             value={numerSeryjny}
                             onChange={(e) => setNumerSeryjny(e.target.value)}
                         />
                     </div>
-                    <label className="add-checkbox-field">
+                    <label htmlFor="dostepny" className="add-checkbox-field">
                         <input
+                            id="dostepny"
                             type="checkbox"
                             checked={dostepny}
                             onChange={(e) => setDostepny(e.target.checked)}

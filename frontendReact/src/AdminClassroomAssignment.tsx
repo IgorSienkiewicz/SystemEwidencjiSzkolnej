@@ -141,8 +141,12 @@ function AdminClassroomAssignment() {
 
             <div className="assign-card">
                 <div className="assign-row">
-                    <label>Filtr sal</label>
-                    <select value={classroomFilter} onChange={e => setClassroomFilter(e.target.value as 'all'|'assigned'|'unassigned')}>
+                    <label htmlFor="classroom-filter">Filtr sal</label>
+                    <select
+                        id="classroom-filter"
+                        value={classroomFilter}
+                        onChange={e => setClassroomFilter(e.target.value as 'all'|'assigned'|'unassigned')}
+                    >
                         <option value="all">Wszystkie</option>
                         <option value="assigned">Przypisane do nauczyciela</option>
                         <option value="unassigned">Wolne (bez nauczyciela)</option>
@@ -150,8 +154,12 @@ function AdminClassroomAssignment() {
                 </div>
 
                 <div className="assign-row">
-                    <label>Wybierz salę</label>
-                    <select value={selectedClassroom} onChange={e => setSelectedClassroom(e.target.value)}>
+                    <label htmlFor="select-classroom">Wybierz salę</label>
+                    <select
+                        id="select-classroom"
+                        value={selectedClassroom}
+                        onChange={e => setSelectedClassroom(e.target.value)}
+                    >
                         <option value="">-- Wybierz salę --</option>
                         {classrooms.map(c => (
                             <option key={c.id} value={c.id}>
@@ -160,9 +168,14 @@ function AdminClassroomAssignment() {
                         ))}
                     </select>
                 </div>
+
                 <div className="assign-row">
-                    <label>Wybierz nauczyciela</label>
-                    <select value={selectedTeacher} onChange={e => setSelectedTeacher(e.target.value)}>
+                    <label htmlFor="select-teacher">Wybierz nauczyciela</label>
+                    <select
+                        id="select-teacher"
+                        value={selectedTeacher}
+                        onChange={e => setSelectedTeacher(e.target.value)}
+                    >
                         <option value="">-- Wybierz nauczyciela --</option>
                         {teachers.map(t => (
                             <option key={t.id} value={t.id}>
@@ -171,6 +184,7 @@ function AdminClassroomAssignment() {
                         ))}
                     </select>
                 </div>
+
                 <div className="assign-actions">
                     <button onClick={assignTeacher} disabled={loading || !selectedClassroom || !selectedTeacher}>
                         {loading ? 'Przypisywanie...' : 'Przypisz'}
@@ -184,18 +198,22 @@ function AdminClassroomAssignment() {
                 <div className="assign-row" style={{ marginTop: '20px', borderTop: '1px solid rgba(129, 140, 248, 0.25)', paddingTop: '14px' }}>
                     <h3 style={{ color: '#e2e8f0' }}>Dodaj nową salę</h3>
                 </div>
+
                 <div className="assign-row">
-                    <label>Numer sali</label>
+                    <label htmlFor="new-classroom-number">Numer sali</label>
                     <input
+                        id="new-classroom-number"
                         type="number"
                         value={newClassroomNumber}
                         onChange={e => setNewClassroomNumber(Number(e.target.value))}
                         className="assign-input"
                     />
                 </div>
+
                 <div className="assign-row">
-                    <label>Lokalizacja</label>
+                    <label htmlFor="new-classroom-location">Lokalizacja</label>
                     <select
+                        id="new-classroom-location"
                         value={newClassroomLocation}
                         onChange={e => setNewClassroomLocation(e.target.value)}
                     >
@@ -206,6 +224,7 @@ function AdminClassroomAssignment() {
                         ))}
                     </select>
                 </div>
+
                 <div className="assign-actions" style={{ marginTop: '10px' }}>
                     <button onClick={addClassroom} disabled={loading || !newClassroomNumber || !newClassroomLocation}>
                         {loading ? 'Dodawanie...' : 'Dodaj salę'}

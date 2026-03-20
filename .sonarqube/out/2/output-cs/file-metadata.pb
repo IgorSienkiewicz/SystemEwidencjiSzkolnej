@@ -1,0 +1,14 @@
+x
+mC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\obj\Debug\net8.0\backend.Tests.GlobalUsings.g.csutf-8v
+kC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\obj\Debug\net8.0\backend.Tests.AssemblyInfo.csutf-8‡
+|C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.csutf-8}
+rC:\Users\sienk\.nuget\packages\microsoft.net.test.sdk\17.8.0\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.Program.csutf-8Z
+QC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Models\ModelTests.csutf-8a
+XC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Helpers\DbContextFactory.csutf-8_
+VC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Data\AppDbContextTests.csutf-8n
+eC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Controllers\RemainingControllersTests.csutf-8r
+iC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Controllers\EquipmentWriteControllerTests.csutf-8q
+hC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Controllers\EquipmentReadControllerTests.csutf-8v
+mC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Controllers\ClassroomEquipmentControllerTests.csutf-8m
+dC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Controllers\ClassroomControllerTests.csutf-8h
+_C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\Controllers\AuthControllerTests.csutf-8
