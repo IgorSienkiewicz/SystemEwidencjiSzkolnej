@@ -51,6 +51,22 @@
     letter-spacing: 1px;
 }
 
+.reserve-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: #cbd5e1;
+    font-size: 14px;
+    outline: none;
+}
+
+.reserve-input:focus {
+    border-color: rgba(129, 140, 248, 0.7);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.1);
+}
+
 .reserve-select {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(129, 140, 248, 0.3);

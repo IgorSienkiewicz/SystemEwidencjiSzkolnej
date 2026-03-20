@@ -20,6 +20,8 @@ function NauczycielReserveEquipment() {
     const [sprzet, setSprzet] = useState<Sprzet[]>([]);
     const [selectedSala, setSelectedSala] = useState<string>("");
     const [selectedSprzet, setSelectedSprzet] = useState<string>("");
+    const [searchQuery, setSearchQuery] = useState<string>("");
+    const [sortBy, setSortBy] = useState<'typ' | 'producent' | 'numer_seryjny'>('typ');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
@@ -28,6 +30,18 @@ function NauczycielReserveEquipment() {
             .then(res => res.json())
             .then(data => setSprzet(data.filter((e: any) => e.dostepny)));
     };
+
+    const filteredSprzet = sprzet
+        .filter(s => {
+            const q = searchQuery.toLowerCase().trim();
+            if (!q) return true;
+            return (
+                s.typ.toLowerCase().includes(q) ||
+                s.producent.toLowerCase().includes(q) ||
+                s.numer_seryjny.toLowerCase().includes(q)
+            );
+        })
+        .sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -75,6 +89,29 @@ function NauczycielReserveEquipment() {
 
             <div className="reserve-card">
                 <div className="reserve-field">
+                    <label className="reserve-label">Wyszukaj sprzęt</label>
+                    <input
+                        className="reserve-input"
+                        type="text"
+                        placeholder="typ / producent / numer seryjny"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                </div>
+                <div className="reserve-field">
+                    <label className="reserve-label">Sortuj po</label>
+                    <select
+                        className="reserve-select"
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value as 'typ' | 'producent' | 'numer_seryjny')}
+                    >
+                        <option value="typ">Typ</option>
+                        <option value="producent">Producent</option>
+                        <option value="numer_seryjny">Numer seryjny</option>
+                    </select>
+                </div>
+
+                <div className="reserve-field">
                     <label className="reserve-label">Wybierz salę</label>
                     <select
                         className="reserve-select"
@@ -98,12 +135,15 @@ function NauczycielReserveEquipment() {
                         onChange={(e) => setSelectedSprzet(e.target.value)}
                     >
                         <option value="">-- Wybierz sprzęt --</option>
-                        {sprzet.map((e) => (
+                        {filteredSprzet.map((e) => (
                             <option key={e.id} value={e.id}>
                                 {e.typ} | {e.producent} | {e.numer_seryjny}
                             </option>
                         ))}
                     </select>
+                    <small style={{ color: '#cbd5e1' }}>
+                        Znaleziono {filteredSprzet.length} z {sprzet.length} dostępnych
+                    </small>
                 </div>
 
                 <button

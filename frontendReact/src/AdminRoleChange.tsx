@@ -6,6 +6,7 @@ function AdminRoleChange() {
     const navigate = useNavigate();
     const [dane, setDane] = useState<any[]>([]);
     const [role, setRole] = useState<any[]>([]);
+    const [searchQuery, setSearchQuery] = useState<string>("");
 
     useEffect(() => {
         fetch("/api/users")
@@ -24,20 +25,58 @@ function AdminRoleChange() {
     }, []);
 
     const zmienRole = async (userId: number, nowaRolaId: number) => {
-        await fetch(`/api/users/${userId}/rola`, {
+        const currentUser = dane.find(u => u.id === userId);
+        if (!currentUser) return;
+
+        const response = await fetch(`/api/users/${userId}/rola`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ rolaId: nowaRolaId })
         });
 
+        if (!response.ok) {
+            const err = await response.json().catch(() => ({ message: "Błąd serwera" }));
+            alert(`Nie udało się zmienić roli: ${err.message}`);
+            setDane(prev => prev.map(u =>
+                u.id === userId ? { ...u, rola_id: currentUser.rola_id } : u
+            ));
+            return;
+        }
+
         setDane(prev => prev.map(u =>
             u.id === userId ? { ...u, rola_id: nowaRolaId } : u
         ));
+        alert("Rola użytkownika została zaktualizowana");
     };
+
+    const filteredDane = dane.filter(u => {
+        const q = searchQuery.toLowerCase().trim();
+        if (!q) return true;
+        return [u.imie, u.nazwisko, u.email, u.login]
+            .some((value: string) => String(value || "").toLowerCase().includes(q));
+    });
 
     return (
         <div className="admin-container">
             <h1 className="admin-title">Zarządzanie użytkownikami</h1>
+            <div style={{ marginBottom: '14px' }}>
+                <input
+                    type="text"
+                    placeholder="Szukaj po imieniu, nazwisku, email lub loginie"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{
+                        width: '100%',
+                        maxWidth: '480px',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid rgba(129, 140, 248, 0.5)',
+                        background: '#1a1a2e',
+                        color: '#e2e8f0',
+                        outline: 'none'
+                    }}
+                />
+            </div>
             <div className="table-wrapper">
                 <table className="admin-table">
                     <thead>
@@ -51,7 +90,7 @@ function AdminRoleChange() {
                         </tr>
                     </thead>
                     <tbody>
-                        {dane.map((user, index) => (
+                        {filteredDane.map((user, index) => (
                             <tr key={user.id}>
                                 <td>{index + 1}</td>
                                 <td>{user.imie}</td>
