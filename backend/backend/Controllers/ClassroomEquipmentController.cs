@@ -2,70 +2,73 @@ using backend.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-[ApiController]
-[Route("api/classroom")]
-public class ClassroomEquipmentController : ControllerBase
+namespace backend.Controllers
 {
-    private readonly AppDbContext _db;
-
-    public ClassroomEquipmentController(AppDbContext db)
+    [ApiController]
+    [Route("api/classroom")]
+    public class ClassroomEquipmentController : ControllerBase
     {
-        _db = db;
-    }
+        private readonly AppDbContext _db;
 
-    [HttpGet("{id}/sprzet")]
-    public async Task<IActionResult> GetSprzet(int id)
-    {
-        var classroom = await _db.Classrooms
-            .Where(c => c.id == id)
-            .Select(c => new {
-                c.id,
-                c.nr_sali,
-                sprzet = c.Equipment.Select(e => new {
-                    e.id,
-                    e.typ,
-                    e.producent,
-                    e.numer_seryjny,
-                    e.dostepny
-                }).ToList()
-            })
-            .FirstOrDefaultAsync();
+        public ClassroomEquipmentController(AppDbContext db)
+        {
+            _db = db;
+        }
 
-        if (classroom == null) return NotFound(new { message = "Nie znaleziono sali" });
-        return Ok(classroom);
-    }
+        [HttpGet("{id}/sprzet")]
+        public async Task<IActionResult> GetSprzet(int id)
+        {
+            var classroom = await _db.Classrooms
+                .Where(c => c.id == id)
+                .Select(c => new {
+                    c.id,
+                    c.nr_sali,
+                    sprzet = c.Equipment.Select(e => new {
+                        e.id,
+                        e.typ,
+                        e.producent,
+                        e.numer_seryjny,
+                        e.dostepny
+                    }).ToList()
+                })
+                .FirstOrDefaultAsync();
 
-   [HttpPost("{lokalizacjaId}/zarezerwuj/{sprzetoId}")]
-    public async Task<IActionResult> ZarezerwujSprzet(int lokalizacjaId, int sprzetoId)
-    {
-        var sala = await _db.Classrooms.FindAsync(lokalizacjaId);
-        if (sala == null) return NotFound(new { message = "Nie znaleziono sali" });
+            if (classroom == null) return NotFound(new { message = "Nie znaleziono sali" });
+            return Ok(classroom);
+        }
 
-        var sprzet = await _db.Equipment.FindAsync(sprzetoId);
-        if (sprzet == null) return NotFound(new { message = "Nie znaleziono sprzetu" });
+        [HttpPost("{lokalizacjaId}/zarezerwuj/{sprzetoId}")]
+        public async Task<IActionResult> ZarezerwujSprzet(int lokalizacjaId, int sprzetoId)
+        {
+            var sala = await _db.Classrooms.FindAsync(lokalizacjaId);
+            if (sala == null) return NotFound(new { message = "Nie znaleziono sali" });
 
-        if (!sprzet.dostepny) return BadRequest(new { message = "Sprzet jest juz niedostepny" });
+            var sprzet = await _db.Equipment.FindAsync(sprzetoId);
+            if (sprzet == null) return NotFound(new { message = "Nie znaleziono sprzetu" });
 
-        sprzet.id_sali = lokalizacjaId;  // ← zmiana z lokalizacja_id na id_sali
-        sprzet.dostepny = false;
+            if (!sprzet.dostepny) return BadRequest(new { message = "Sprzet jest juz niedostepny" });
 
-        await _db.SaveChangesAsync();
-        return Ok(new { message = "Zarezerwowano sprzet" });
-    }
+            sprzet.id_sali = lokalizacjaId;
+            sprzet.dostepny = false;
 
-    [HttpPost("{lokalizacjaId}/zwolnij/{sprzetoId}")]
-    public async Task<IActionResult> ZwolnijSprzet(int lokalizacjaId, int sprzetoId)
-    {
-        var sprzet = await _db.Equipment.FindAsync(sprzetoId);
-        if (sprzet == null) return NotFound(new { message = "Nie znaleziono sprzetu" });
+            await _db.SaveChangesAsync();
+            return Ok(new { message = "Zarezerwowano sprzet" });
+        }
 
-        if (sprzet.id_sali != lokalizacjaId)  // ← zmiana z lokalizacja_id na id_sali
-            return BadRequest(new { message = "Sprzet nie jest przypisany do tej sali" });
+        [HttpPost("{lokalizacjaId}/zwolnij/{sprzetoId}")]
+        public async Task<IActionResult> ZwolnijSprzet(int lokalizacjaId, int sprzetoId)
+        {
+            var sprzet = await _db.Equipment.FindAsync(sprzetoId);
+            if (sprzet == null) return NotFound(new { message = "Nie znaleziono sprzetu" });
 
-        sprzet.id_sali = null;  // ← zmiana z lokalizacja_id na id_sali
-        sprzet.dostepny = true;
+            if (sprzet.id_sali != lokalizacjaId)
+                return BadRequest(new { message = "Sprzet nie jest przypisany do tej sali" });
 
-        await _db.SaveChangesAsync();
-        return Ok(new { message = "Zwolniono sprzet" });
+            sprzet.id_sali = null;
+            sprzet.dostepny = true;
+
+            await _db.SaveChangesAsync();
+            return Ok(new { message = "Zwolniono sprzet" });
+        }
     }
 }

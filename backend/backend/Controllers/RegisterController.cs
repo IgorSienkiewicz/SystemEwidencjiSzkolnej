@@ -2,33 +2,36 @@ using backend.Data;
 using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
-[ApiController]
-[Route("api/[controller]")]
-public class RegisterController : ControllerBase
+namespace backend.Controllers
 {
-    private readonly AppDbContext _db;
-
-    public RegisterController(AppDbContext db)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class RegisterController : ControllerBase
     {
-        _db = db;
-    }
+        private readonly AppDbContext _db;
 
-    [HttpPost]
-    public async Task<IActionResult> Register([FromBody] RegisterRequest request)  
-    {
-        var user = new User
+        public RegisterController(AppDbContext db)
         {
-            login = request.Login,
-            haslo = request.Haslo,
-            imie = request.Imie,
-            nazwisko = request.Nazwisko,
-            email = request.Email,
-            rola_id = 2
-        };
+            _db = db;
+        }
 
-        _db.Users.Add(user);
-        await _db.SaveChangesAsync();
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        {
+            var user = new User
+            {
+                login = request.Login,
+                haslo = request.Haslo,
+                imie = request.Imie,
+                nazwisko = request.Nazwisko,
+                email = request.Email,
+                rola_id = 2
+            };
 
-        return Ok(new { message = "Zarejestrowano pomyślnie!" });
+            _db.Users.Add(user);
+            await _db.SaveChangesAsync();
+
+            return Ok(new { message = "Zarejestrowano pomyślnie!" });
+        }
     }
 }

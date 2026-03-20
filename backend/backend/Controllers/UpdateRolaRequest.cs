@@ -2,6 +2,6 @@ namespace backend.Models
 {
     public class UpdateRolaRequest
     {
-        public int RolaId { get; set; }
+        public required int RolaId { get; set; }
     }
 }

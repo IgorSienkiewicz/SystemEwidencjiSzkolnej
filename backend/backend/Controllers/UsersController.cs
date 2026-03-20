@@ -3,45 +3,48 @@ using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-[ApiController]
-[Route("api/[controller]")]
-public class UsersController : ControllerBase
+namespace backend.Controllers
 {
-    private readonly AppDbContext _db;
-
-    public UsersController(AppDbContext db)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UsersController : ControllerBase
     {
-        _db = db;
-    }
+        private readonly AppDbContext _db;
 
-    [HttpGet]
-    public async Task<IActionResult> GetUsers()
-    {
-        var users = await _db.Users
-            .Include(u => u.Rola)
-            .Select(u => new {
-                u.id,
-                u.imie,
-                u.nazwisko,
-                u.email,
-                u.login,
-                rola = u.Rola!.RoleName,
-                u.rola_id
-            })
-            .ToListAsync();
+        public UsersController(AppDbContext db)
+        {
+            _db = db;
+        }
 
-        return Ok(users);
-    }
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _db.Users
+                .Include(u => u.Rola)
+                .Select(u => new {
+                    u.id,
+                    u.imie,
+                    u.nazwisko,
+                    u.email,
+                    u.login,
+                    rola = u.Rola!.RoleName,
+                    u.rola_id
+                })
+                .ToListAsync();
 
-    [HttpPut("{id}/rola")]
-    public async Task<IActionResult> UpdateRola(int id, [FromBody] UpdateRolaRequest request)
-    {
-        var user = await _db.Users.FindAsync(id);
-        if (user == null) return NotFound();
+            return Ok(users);
+        }
 
-        user.rola_id = request.RolaId;
-        await _db.SaveChangesAsync();
+        [HttpPut("{id}/rola")]
+        public async Task<IActionResult> UpdateRola(int id, [FromBody] UpdateRolaRequest request)
+        {
+            var user = await _db.Users.FindAsync(id);
+            if (user == null) return NotFound();
 
-        return Ok(new { message = "Rola zaktualizowana" });
+            user.rola_id = request.RolaId;
+            await _db.SaveChangesAsync();
+
+            return Ok(new { message = "Rola zaktualizowana" });
+        }
     }
 }

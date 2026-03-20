@@ -14,7 +14,7 @@ namespace backend.Models
         public string NumerSeryjny { get; set; } = string.Empty;
 
         [JsonPropertyName("dostepny")]
-        public bool Dostepny { get; set; }
+        public required bool Dostepny { get; set; }
 
         [JsonPropertyName("lokalizacjaId")]
         public int? LokalizacjaId { get; set; }

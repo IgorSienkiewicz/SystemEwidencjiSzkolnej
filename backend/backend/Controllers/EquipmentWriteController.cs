@@ -2,61 +2,64 @@ using backend.Data;
 using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
-[ApiController]
-[Route("api/equipment")]
-public class EquipmentWriteController : ControllerBase
+namespace backend.Controllers
 {
-    private readonly AppDbContext _db;
-
-    public EquipmentWriteController(AppDbContext db)
+    [ApiController]
+    [Route("api/equipment")]
+    public class EquipmentWriteController : ControllerBase
     {
-        _db = db;
-    }
+        private readonly AppDbContext _db;
 
-    [HttpPost]
-    public async Task<IActionResult> AddEquipment([FromBody] AddEquipmentRequest request)
-    {
-        var equipment = new Equipment
+        public EquipmentWriteController(AppDbContext db)
         {
-            typ = request.Typ,
-            producent = request.Producent,
-            numer_seryjny = request.NumerSeryjny,
-            dostepny = request.Dostepny,
-            lokalizacja_id = request.LokalizacjaId
-        };
+            _db = db;
+        }
 
-        _db.Equipment.Add(equipment);
-        await _db.SaveChangesAsync();
-        return Ok(new { message = "Dodano sprzet" });
-    }
+        [HttpPost]
+        public async Task<IActionResult> AddEquipment([FromBody] AddEquipmentRequest request)
+        {
+            var equipment = new Equipment
+            {
+                typ = request.Typ,
+                producent = request.Producent,
+                numer_seryjny = request.NumerSeryjny,
+                dostepny = request.Dostepny,
+                lokalizacja_id = request.LokalizacjaId
+            };
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateEquipment(int id, [FromBody] UpdateEquipmentRequest request)
-    {
-        var equipment = await _db.Equipment.FindAsync(id);
-        if (equipment == null) return NotFound();
+            _db.Equipment.Add(equipment);
+            await _db.SaveChangesAsync();
+            return Ok(new { message = "Dodano sprzet" });
+        }
 
-        equipment.typ = request.Typ;
-        equipment.producent = request.Producent;
-        equipment.numer_seryjny = request.NumerSeryjny;
-        equipment.dostepny = request.Dostepny;
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateEquipment(int id, [FromBody] UpdateEquipmentRequest request)
+        {
+            var equipment = await _db.Equipment.FindAsync(id);
+            if (equipment == null) return NotFound();
 
-        if (request.LokalizacjaId.HasValue)
-            equipment.lokalizacja_id = request.LokalizacjaId.Value;
+            equipment.typ = request.Typ;
+            equipment.producent = request.Producent;
+            equipment.numer_seryjny = request.NumerSeryjny;
+            equipment.dostepny = request.Dostepny;
 
-        await _db.SaveChangesAsync();
-        return Ok(new { message = "Zaktualizowano sprzet" });
-    }
+            if (request.LokalizacjaId.HasValue)
+                equipment.lokalizacja_id = request.LokalizacjaId.Value;
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteEquipment(int id)
-    {
-        var equipment = await _db.Equipment.FindAsync(id);
-        if (equipment == null)
-            return NotFound(new { message = "Nie znaleziono sprzetu" });
+            await _db.SaveChangesAsync();
+            return Ok(new { message = "Zaktualizowano sprzet" });
+        }
 
-        _db.Equipment.Remove(equipment);
-        await _db.SaveChangesAsync();
-        return Ok(new { message = "Usunieto sprzet" });
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEquipment(int id)
+        {
+            var equipment = await _db.Equipment.FindAsync(id);
+            if (equipment == null)
+                return NotFound(new { message = "Nie znaleziono sprzetu" });
+
+            _db.Equipment.Remove(equipment);
+            await _db.SaveChangesAsync();
+            return Ok(new { message = "Usunieto sprzet" });
+        }
     }
 }

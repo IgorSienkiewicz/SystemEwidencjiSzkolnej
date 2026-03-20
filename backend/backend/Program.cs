@@ -23,4 +23,4 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseCors("AllowFrontend");
 app.MapControllers();
-app.Run();
+await app.RunAsync();

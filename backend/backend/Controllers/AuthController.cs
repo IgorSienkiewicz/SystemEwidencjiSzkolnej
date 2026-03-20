@@ -3,27 +3,30 @@ using backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-[ApiController]
-[Route("api/[controller]")]
-public class AuthController : ControllerBase
+namespace backend.Controllers
 {
-    private readonly AppDbContext _db;
-
-    public AuthController(AppDbContext db)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthController : ControllerBase
     {
-        _db = db;
-    }
+        private readonly AppDbContext _db;
 
-    [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginRequest request)
-    {
-        var user = await _db.Users
-            .Include(u => u.Rola)
-            .FirstOrDefaultAsync(u => u.login.Trim() == request.Login.Trim() && u.haslo.Trim() == request.Haslo.Trim());
+        public AuthController(AppDbContext db)
+        {
+            _db = db;
+        }
 
-        if (user == null)
-            return Unauthorized(new { message = "Błędny login lub hasło" });
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            var user = await _db.Users
+                .Include(u => u.Rola)
+                .FirstOrDefaultAsync(u => u.login.Trim() == request.Login.Trim() && u.haslo.Trim() == request.Haslo.Trim());
 
-        return Ok(new { message = "Zalogowano pomyślnie!", rola = user.Rola!.RoleName, id = user.id });
+            if (user == null)
+                return Unauthorized(new { message = "Błędny login lub hasło" });
+
+            return Ok(new { message = "Zalogowano pomyślnie!", rola = user.Rola!.RoleName, id = user.id });
+        }
     }
 }
