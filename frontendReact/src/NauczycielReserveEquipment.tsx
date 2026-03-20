@@ -121,10 +121,13 @@ function NauczycielReserveEquipment() {
                         <option value="">-- Wybierz salę --</option>
                         {sale.map((s) => (
                             <option key={s.id} value={s.id}>
-                                Sala {s.nr_sali} | {s.lokalizacja}
+                                Sala {s.nr_sali} | {s.lokalizacja} | (po rezerwacji sprzęt stanie się niedostępny i będzie przypisany do tej sali)
                             </option>
                         ))}
                     </select>
+                    <small style={{ color: '#cbd5e1' }}>
+                       
+                    </small>
                 </div>
 
                 <div className="reserve-field">

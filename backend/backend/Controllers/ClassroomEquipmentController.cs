@@ -35,7 +35,7 @@ public class ClassroomEquipmentController : ControllerBase
         return Ok(classroom);
     }
 
-    [HttpPost("{lokalizacjaId}/zarezerwuj/{sprzetoId}")]
+   [HttpPost("{lokalizacjaId}/zarezerwuj/{sprzetoId}")]
     public async Task<IActionResult> ZarezerwujSprzet(int lokalizacjaId, int sprzetoId)
     {
         var sala = await _db.Classrooms.FindAsync(lokalizacjaId);
@@ -46,7 +46,7 @@ public class ClassroomEquipmentController : ControllerBase
 
         if (!sprzet.dostepny) return BadRequest(new { message = "Sprzet jest juz niedostepny" });
 
-        sprzet.lokalizacja_id = lokalizacjaId;
+        sprzet.id_sali = lokalizacjaId;  // ← zmiana z lokalizacja_id na id_sali
         sprzet.dostepny = false;
 
         await _db.SaveChangesAsync();
@@ -59,10 +59,10 @@ public class ClassroomEquipmentController : ControllerBase
         var sprzet = await _db.Equipment.FindAsync(sprzetoId);
         if (sprzet == null) return NotFound(new { message = "Nie znaleziono sprzetu" });
 
-        if (sprzet.lokalizacja_id != lokalizacjaId)
+        if (sprzet.id_sali != lokalizacjaId)  // ← zmiana z lokalizacja_id na id_sali
             return BadRequest(new { message = "Sprzet nie jest przypisany do tej sali" });
 
-        sprzet.lokalizacja_id = null;
+        sprzet.id_sali = null;  // ← zmiana z lokalizacja_id na id_sali
         sprzet.dostepny = true;
 
         await _db.SaveChangesAsync();

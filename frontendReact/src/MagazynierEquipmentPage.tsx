@@ -5,6 +5,8 @@ import './MagazynierEquipmentPage.css';
 function MagazynierEquipmentPage() {
     const navigate = useNavigate();
     const [dane, setDane] = useState<any[]>([]);
+    const [searchQuery, setSearchQuery] = useState<string>("");
+    const [availability, setAvailability] = useState<'all'|'available'|'unavailable'>('all');
 
     useEffect(() => {
         fetch("/api/equipment")
@@ -12,9 +14,47 @@ function MagazynierEquipmentPage() {
             .then(data => setDane(data));
     }, []);
 
+    const filteredDane = dane
+        .filter(item => {
+            const q = searchQuery.toLowerCase().trim();
+            if (!q) return true;
+            return (
+                item.typ.toLowerCase().includes(q) ||
+                item.producent.toLowerCase().includes(q) ||
+                item.numer_seryjny.toLowerCase().includes(q) ||
+                String(item.lokalizacja || '').toLowerCase().includes(q)
+            );
+        })
+        .filter(item => {
+            if (availability === 'all') return true;
+            if (availability === 'available') return item.dostepny;
+            return !item.dostepny;
+        });
+
     return (
         <div className="equipment-container">
             <h1 className="equipment-title">Lista sprzętu</h1>
+            <div className="filter-row" style={{ display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                <input
+                    type="text"
+                    placeholder="Wyszukaj typ / producent / nr seryjny / lokalizacja"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{ padding: '8px 12px', borderRadius: '8px', border: '1px solid #7289da', background: '#1e2740', color: '#f0f4ff', minWidth: '270px' }}
+                />
+                <select
+                    value={availability}
+                    onChange={(e) => setAvailability(e.target.value as any)}
+                    style={{ padding: '8px 12px', borderRadius: '8px', border: '1px solid #7289da', background: '#1e2740', color: '#f0f4ff' }}
+                >
+                    <option value="all">Wszystkie</option>
+                    <option value="available">Dostępne</option>
+                    <option value="unavailable">Niedostępne</option>
+                </select>
+                <div style={{ color: '#cbd5e1', alignSelf: 'center' }}>
+                    {filteredDane.length} / {dane.length} wyników
+                </div>
+            </div>
             <div className="table-wrapper">
                 <table className="equipment-table">
                     <thead>
@@ -30,7 +70,7 @@ function MagazynierEquipmentPage() {
                         </tr>
                     </thead>
                     <tbody>
-                        {dane.map((equipment, index) => (
+                        {filteredDane.map((equipment, index) => (
                             <tr key={equipment.id}>
                                 <td>{index + 1}</td>
                                 <td>{equipment.typ}</td>
