@@ -15,6 +15,8 @@ function MagazynierDeleteEquipment() {
     const [equipment, setEquipment] = useState<Equipment[]>([]);
     const [selectedId, setSelectedId] = useState<string>("");
     const [loading, setLoading] = useState(false);
+    const [searchQuery, setSearchQuery] = useState<string>("");
+    const [availability, setAvailability] = useState<'all' | 'available' | 'unavailable'>('all');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,6 +28,18 @@ function MagazynierDeleteEquipment() {
         const data = await response.json();
         setEquipment(data);
     };
+
+    const filteredEquipment = equipment.filter((item) => {
+        const text = `${item.typ} ${item.producent} ${item.numer_seryjny} ${item.lokalizacja}`.toLowerCase();
+        const matchesText = text.includes(searchQuery.toLowerCase());
+
+        if (!matchesText) return false;
+
+        if (availability === 'available') return item.dostepny;
+        if (availability === 'unavailable') return !item.dostepny;
+
+        return true;
+    });
 
     const handleDelete = async () => {
         if (!selectedId) {
@@ -63,6 +77,30 @@ function MagazynierDeleteEquipment() {
         <div className="delete-container">
             <h2 className="delete-title">Usuń sprzęt</h2>
             <div className="delete-card">
+                <div className="filter-row">
+                    <div>
+                        <label className="delete-label">Szukaj</label>
+                        <input
+                            className="delete-input"
+                            type="text"
+                            placeholder="typ / producent / nr seryjny / lokalizacja"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label className="delete-label">Status dostępności</label>
+                        <select
+                            className="delete-select"
+                            value={availability}
+                            onChange={(e) => setAvailability(e.target.value as 'all' | 'available' | 'unavailable')}
+                        >
+                            <option value="all">Wszystkie</option>
+                            <option value="available">Dostępny</option>
+                            <option value="unavailable">Niedostępny</option>
+                        </select>
+                    </div>
+                </div>
                 <div>
                     <label className="delete-label">Wybierz sprzęt</label>
                     <select
@@ -71,9 +109,9 @@ function MagazynierDeleteEquipment() {
                         onChange={(e) => setSelectedId(e.target.value)}
                     >
                         <option value="">-- Wybierz sprzęt --</option>
-                        {equipment.map((e) => (
+                        {filteredEquipment.map((e) => (
                             <option key={e.id} value={e.id}>
-                                {e.typ} | {e.producent} | {e.numer_seryjny} | {e.dostepny ? "Dostępny" : "Niedostępny"}
+                                {e.typ} | {e.producent} | {e.numer_seryjny} | {e.dostepny ? "Dostępny" : "Niedostępny"} | {e.lokalizacja}
                             </option>
                         ))}
                     </select>
