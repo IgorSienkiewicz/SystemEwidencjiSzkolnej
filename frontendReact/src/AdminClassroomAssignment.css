@@ -1,0 +1,117 @@
+.assign-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+    padding: 40px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.assign-title {
+    font-size: 32px;
+    color: #e2e8f0;
+    margin-bottom: 24px;
+    border-left: 5px solid #818cf8;
+    padding-left: 14px;
+    letter-spacing: 0.5px;
+}
+
+.assign-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.assign-row {
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.assign-row label {
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.assign-row select,
+.assign-input {
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5e1;
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.assign-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.assign-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.assign-actions button,
+.unassign-button,
+.back-button {
+    background: linear-gradient(90deg, #4f46e5, #818cf8);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.assign-actions button:disabled,
+.unassign-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.assign-message {
+    color: #f8fafc;
+    padding: 8px;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.assign-table-wrapper {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(129, 140, 248, 0.25);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    overflow-x: auto;
+}
+
+.assign-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.assign-table th,
+.assign-table td {
+    border-bottom: 1px solid rgba(132, 144, 178, 0.2);
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.assign-table th {
+    color: #e2e8f0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+}

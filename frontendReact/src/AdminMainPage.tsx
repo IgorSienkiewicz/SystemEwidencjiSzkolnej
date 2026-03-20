@@ -13,8 +13,9 @@ function AdminMainPage() {
             <div className="main-buttons">
                 <button className="main-button" onClick={() => navigate("/admin/RoleChange")}>
                     👥 Zmiana Roli
-                </button>
-                <button className="main-button" onClick={() => navigate("/admin/EquipmentManagement")}>
+                </button>                <button className="main-button" onClick={() => navigate("/admin/AssignClassroom") }>
+                    🏫 Przypisz salę nauczycielowi
+                </button>                <button className="main-button" onClick={() => navigate("/admin/EquipmentManagement")}>
                     🖥️ Zarządzanie sprzętem
                 </button>
                 <button className="main-button logout" onClick={wyloguj}>

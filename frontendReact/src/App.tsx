@@ -6,6 +6,7 @@ import NauczycielMainPage from './NauczycielMainPage'
 import MagazynierMainPage from './MagazynierMainPage'
 import AdminMainPage from './AdminMainPage'
 import AdminRoleChange from './AdminRoleChange'
+import AdminClassroomAssignment from './AdminClassroomAssignment'
 import ProtectedRoute from './ProtectedRoute'
 import NauczycielSalaPage from './NauczycielSalaPage'
 import MagazynierEquipmentPage from './MagazynierEquipmentPage'
@@ -38,6 +39,11 @@ function App() {
     <Route path="/admin/RoleChange" element={
         <ProtectedRoute dozwoloneRole={['Admin']}>
             <AdminRoleChange />
+        </ProtectedRoute>
+    } />
+    <Route path="/admin/AssignClassroom" element={
+        <ProtectedRoute dozwoloneRole={['Admin']}>
+            <AdminClassroomAssignment />
         </ProtectedRoute>
     } />
     <Route path="/nauczyciel" element={
