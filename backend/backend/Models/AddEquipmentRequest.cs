@@ -17,6 +17,6 @@ namespace backend.Models
         public bool Dostepny { get; set; }
 
         [JsonPropertyName("lokalizacjaId")]
-        public int LokalizacjaId { get; set; }
+        public int? LokalizacjaId { get; set; }
     }
 }

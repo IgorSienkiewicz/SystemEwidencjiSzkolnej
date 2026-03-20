@@ -18,7 +18,7 @@ public class EquipmentReadController : ControllerBase
     {
         var equipment = await (
             from e in _db.Equipment
-            join c in _db.Classrooms on e.lokalizacja_id equals c.id into cc
+            join c in _db.Classrooms on e.id_sali equals c.id into cc  // ← zmiana
             from c in cc.DefaultIfEmpty()
             join u in _db.Users on c.id_nauczyciela equals u.id into uu
             from u in uu.DefaultIfEmpty()
@@ -44,7 +44,7 @@ public class EquipmentReadController : ControllerBase
         var item = await (
             from e in _db.Equipment
             where e.id == id
-            join c in _db.Classrooms on e.lokalizacja_id equals c.id into cc
+            join c in _db.Classrooms on e.id_sali equals c.id into cc  // ← zmiana
             from c in cc.DefaultIfEmpty()
             join u in _db.Users on c.id_nauczyciela equals u.id into uu
             from u in uu.DefaultIfEmpty()

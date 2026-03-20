@@ -7,7 +7,6 @@ function MagazynierAddEquipment() {
     const [producent, setProducent] = useState("");
     const [numerSeryjny, setNumerSeryjny] = useState("");
     const [dostepny, setDostepny] = useState(true);
-    const [lokalizacjaId, setLokalizacjaId] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -17,8 +16,7 @@ function MagazynierAddEquipment() {
             typ,
             producent,
             numerSeryjny,
-            dostepny,
-            lokalizacjaId: parseInt(lokalizacjaId)
+            dostepny
         };
 
         const response = await fetch("/api/equipment", {
@@ -61,16 +59,6 @@ function MagazynierAddEquipment() {
                             placeholder="np. SN-001"
                             value={numerSeryjny}
                             onChange={(e) => setNumerSeryjny(e.target.value)}
-                        />
-                    </div>
-                    <div className="add-field">
-                        <label className="add-label">ID lokalizacji</label>
-                        <input
-                            className="add-input"
-                            placeholder="np. 1"
-                            type="number"
-                            value={lokalizacjaId}
-                            onChange={(e) => setLokalizacjaId(e.target.value)}
                         />
                     </div>
                     <label className="add-checkbox-field">
