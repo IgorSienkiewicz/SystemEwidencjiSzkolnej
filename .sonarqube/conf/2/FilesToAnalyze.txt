@@ -14,11 +14,16 @@ C:\Users\sienk\.nuget\packages\xunit.runner.visualstudio\2.5.3\build\net6.0\xuni
 C:\Users\sienk\.nuget\packages\xunit.runner.visualstudio\2.5.3\build\net6.0\xunit.runner.reporters.netcoreapp10.dll
 C:\Users\sienk\.nuget\packages\xunit.runner.visualstudio\2.5.3\build\net6.0\xunit.runner.utility.netcoreapp10.dll
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\0363ac74-2a6a-41a6-973d-ca26bcde322f\coverage.opencover.xml
+C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\1a5f186e-9ccd-4015-9fab-de6fe81bec45\coverage.opencover.xml
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\1cd5d8a9-7c26-4261-86f7-d38d0a85833c\coverage.opencover.xml
+C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\2428f166-916f-42d6-a434-9d0f5964f1b6\coverage.opencover.xml
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\2430046e-94dc-45eb-9867-7a4199d5d12b\coverage.opencover.xml
+C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\24783a7d-7b63-4d14-8a42-1973a8d03967\coverage.opencover.xml
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\253c0eac-68f4-44fd-a9d3-b9938e7f51a8\coverage.opencover.xml
+C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\30096439-939b-4826-aeca-61b9344f3c64\coverage.opencover.xml
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\34d56865-7354-41e7-865b-5bccabe59839\coverage.opencover.xml
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\3c324eba-c755-4e2c-951c-74fc8ca13f4d\coverage.opencover.xml
+C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\45e34a06-9951-4e89-9c92-e362b08456f0\coverage.opencover.xml
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\5751bac4-f176-4bf7-9950-594e6f956033\coverage.opencover.xml
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\77d2a438-e9c0-4954-8b76-84d67aa57b54\coverage.opencover.xml
 C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend.Tests\TestResults\cf40249c-a525-4691-b8b5-8390ca435d43\coverage.opencover.xml

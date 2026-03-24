@@ -3,9 +3,9 @@ zC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\obj\Debug\net8.0
 gC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\obj\Debug\net8.0\backend.AssemblyInfo.csutf-8‰
 ~C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.csutf-8t
 iC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\obj\Debug\net8.0\backend.GlobalUsings.g.csutf-8R
-IC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\Program.csutf-8V
-MC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\Models\User.csutf-8h
+IC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\Program.csutf-8h
 _C:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\Models\UpdateEquipmentRequest.csutf-8V
+MC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\Models\User.csutf-8V
 MC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\Models\Role.csutf-8a
 XC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\Models\RegisterRequest.csutf-8^
 UC:\Users\sienk\Desktop\SystemEwidencjiSzkolnej\backend\backend\Models\LoginRequest.csutf-8Z
